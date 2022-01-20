@@ -47,6 +47,11 @@ fun main(args: Array<String>) {
 
     }
 
+    fun SortArray()
+    {
+        _contactList.sortWith(compareBy(String.CASE_INSENSITIVE_ORDER, { it.name}))
+
+    }
     fun AddList()
     {
 
@@ -65,6 +70,7 @@ fun main(args: Array<String>) {
         print("Mejl-adress 2:")
         val _mail2 = readLine().toString()
         _contactList.add(Contact(_name, _aftername, _age, _tef1, _tef2, _mail1, _mail2))
+        SortArray()
 
     }
 
@@ -156,9 +162,9 @@ fun main(args: Array<String>) {
 
 
 
+
     while (_function != 0)
     {
-
         PrintMenu()
 
         _function = Integer.valueOf(readLine())
