@@ -13,22 +13,25 @@ fun main(args: Array<String>) {
 
     fun PrintList()
     {
-        for (_contact in _contactList)
+        for (i in 0 until _contactList.size)
         {
+            println()
+            print("Index: ")
+            println(i)
             print("Förnamn: ")
-            println(_contact.name)
+            println(_contactList[i].name)
             print("Efternamn: ")
-            println(_contact.lastName)
+            println(_contactList[i].lastName)
             print("Age: ")
-            println(_contact.age)
-            print("Telefonnummer: ")
-            println(_contact.phoneNumber1)
-            print("Telefonnummer: ")
-            println(_contact.phoneNumber2)
-            print("Mejl-adress: ")
-            println(_contact.mail1)
-            print("Mejl-adress: ")
-            println(_contact.mail2)
+            println(_contactList[i].age)
+            print("Telefonnummer 1: ")
+            println(_contactList[i].phoneNumber1)
+            print("Telefonnummer 2: ")
+            println(_contactList[i].phoneNumber2)
+            print("Mejl-adress 1: ")
+            println(_contactList[i].mail1)
+            print("Mejl-adress 2: ")
+            println(_contactList[i].mail2)
         }
 
     }
@@ -47,14 +50,106 @@ fun main(args: Array<String>) {
     fun AddList()
     {
 
-        println("Förnamn: ")
-        val _name :String =
-        println("Efternamn:")
-        val _aftername = readLine()
-        println("Age: ")
-        val _age = readLine()
-        //_contactList.add(Contact("Thai", "Bui", 10))
-        _contactList.add(Contact(_name))
+        print("Förnamn: ")
+        val _name = readLine().toString()
+        print("Efternamn:")
+        val _aftername = readLine().toString()
+        print("Ålder: ")
+        val _age = Integer.valueOf(readLine())
+        print("Telefonnummer 1:")
+        val _tef1 = readLine().toString()
+        print("Telefonnummer 2:")
+        val _tef2 = readLine().toString()
+        print("Mejl-adress 1:")
+        val _mail1 = readLine().toString()
+        print("Mejl-adress 2:")
+        val _mail2 = readLine().toString()
+        _contactList.add(Contact(_name, _aftername, _age, _tef1, _tef2, _mail1, _mail2))
+
+    }
+
+    fun RemoveList()
+    {
+        PrintList()
+        println()
+        print("Mata in index för att ta bort lista: ")
+        val _index = Integer.valueOf(readLine())
+        _contactList.removeAt(_index)
+
+
+    }
+
+    fun EditList()
+
+    {
+        PrintList()
+        println()
+        println("Mata in index för att redigera: ")
+        val _index = Integer.valueOf(readLine())
+        println("Vad vill du redigera:")
+        println("1.Förnamn")
+        println("2.Efternamn")
+        println("3.Ålder")
+        println("4.Telefonnummer 1")
+        println("5.Telefonnummer 2")
+        println("6.Mejl-adress 1")
+        println("7.Mejl-adress 2")
+
+        val _selected = Integer.valueOf(readLine())
+        when (_selected)
+        {
+            1 ->
+            {
+                println("Förnamn: " + _contactList[_index].name)
+                print("Ny förnamn: ")
+                _contactList[_index].name = readLine().toString()
+
+            }
+            2 ->
+            {
+                println("Efternamn: " + _contactList[_index].lastName)
+                print("Ny efternamn: ")
+                _contactList[_index].lastName = readLine().toString()
+
+            }
+
+            3 ->
+            {
+                println("Ålder: " + _contactList[_index].age)
+                print("Ny ålder: ")
+                _contactList[_index].age = Integer.valueOf(readLine())
+
+            }
+
+            4 ->
+            {
+                println("Telefonnummer 1: " + _contactList[_index].phoneNumber1)
+                print("Ny telefonnumer 1: ")
+                _contactList[_index].phoneNumber1 = readLine().toString()
+
+            }
+            5 ->
+            {
+                println("Telefonnummer 2: " + _contactList[_index].phoneNumber2)
+                print("Ny telefonnumer 2: ")
+                _contactList[_index].phoneNumber2 = readLine().toString()
+
+            }
+            6 ->
+            {
+                println("Mejl-adress 1: " + _contactList[_index].mail1)
+                print("Ny mejl-adress 1: ")
+                _contactList[_index].mail1 = readLine().toString()
+
+            }
+            7 ->
+            {
+                println("Mejl-adress 2: " + _contactList[_index].mail2)
+                print("Ny mejl-adress 2: ")
+                _contactList[_index].mail2 = readLine().toString()
+
+            }
+        }
 
     }
 
@@ -63,6 +158,7 @@ fun main(args: Array<String>) {
 
     while (_function != 0)
     {
+
         PrintMenu()
 
         _function = Integer.valueOf(readLine())
@@ -71,14 +167,10 @@ fun main(args: Array<String>) {
         {
              1 -> PrintList()
              2 -> AddList()
-             3 -> println(_contactList[0].mail2)
-             4 -> println(_contactList[0].mail2)
-             5 -> println(_contactList[0].mail2)
-             6 -> println(_contactList[0].mail2)
+             3 -> RemoveList()
+             4 -> EditList()
         }
     }
-
-
 
 
 }

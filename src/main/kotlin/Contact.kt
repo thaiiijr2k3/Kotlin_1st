@@ -1,12 +1,13 @@
 import kotlin.time.measureTimedValue
 
-class Contact (var _name: String = "Unknown", var _lastName: String = "Unknown", var _age: Int = -1) {
+class Contact (_name: String = "Unknown", _lastName: String = "Unknown", _age: Int = -1, _phoneNumber1: String = "",
+_phoneNumber2 :String = "", _mail1: String ="", _mail2: String ="") {
     var name = _name
     var lastName = _lastName
     var age = _age
-    var phoneNumber1 = 0
-    var phoneNumber2 = 0
-    var mail1 = ""
-    var mail2 = ""
+    var phoneNumber1 = _phoneNumber1
+    var phoneNumber2 = _phoneNumber2
+    var mail1 = _mail1
+    var mail2 = _mail2
 }
 
