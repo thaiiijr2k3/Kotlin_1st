@@ -1,5 +1,4 @@
-import com.sun.jdi.IntegerValue
-import javax.swing.text.AbstractDocument
+
 
 fun main(args: Array<String>) {
 
@@ -49,7 +48,9 @@ fun main(args: Array<String>) {
 
     fun SortArray()
     {
-        _contactList.sortWith(compareBy(String.CASE_INSENSITIVE_ORDER, { it.name}))
+       // _contactList.sortBy { it.name }
+
+        _contactList.sortWith(compareBy({it.name}, {it.lastName}))
 
     }
     fun AddList()
@@ -71,6 +72,7 @@ fun main(args: Array<String>) {
         val _mail2 = readLine().toString()
         _contactList.add(Contact(_name, _aftername, _age, _tef1, _tef2, _mail1, _mail2))
         SortArray()
+        println("Done!")
 
     }
 
@@ -81,6 +83,7 @@ fun main(args: Array<String>) {
         print("Mata in index för att ta bort lista: ")
         val _index = Integer.valueOf(readLine())
         _contactList.removeAt(_index)
+        println("Done!")
 
 
     }
@@ -156,6 +159,8 @@ fun main(args: Array<String>) {
 
             }
         }
+        SortArray()
+        println("Done!")
 
     }
 
