@@ -24,8 +24,10 @@ class FileText() {
                 out.println(i.mail1)
                 out.println(i.mail2)
 
-            */
+
             }
+
+            */
 
         }
 
