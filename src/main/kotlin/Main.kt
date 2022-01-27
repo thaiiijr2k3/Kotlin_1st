@@ -5,10 +5,11 @@ fun main(args: Array<String>) {
 
     println("Thais telefonbok")
     var _function = -1
-    //var _contactList: MutableList<Contact>
-    //var _contactList = MutableList(0) {Contact() }
+
 
     var _contactList = ArrayList<Contact>()
+    var _file = FileText()
+    _file.FileText()
 
     fun PrintList()
     {
@@ -48,7 +49,7 @@ fun main(args: Array<String>) {
 
     fun SortArray()
     {
-       // _contactList.sortBy { it.name }
+
 
         _contactList.sortWith(compareBy({it.name}, {it.lastName}))
 
@@ -182,6 +183,8 @@ fun main(args: Array<String>) {
              4 -> EditList()
         }
     }
+
+    _file.saveListToFile(_contactList)
 
 
 }
