@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
 
 
     var _contactList = ArrayList<Contact>()
-    var _file = FileText()
+    val _file = FileText()
     _file.FileText()
 
     fun PrintList()
@@ -52,6 +52,7 @@ fun main(args: Array<String>) {
 
 
         _contactList.sortWith(compareBy({it.name}, {it.lastName}))
+    // Sotera kontaktlistan i alfabetisk ordning (först jämföra förnamn, om de är samma då jämföra efternamn
 
     }
 
@@ -91,7 +92,7 @@ fun main(args: Array<String>) {
             try
             {
                 check = true
-                val tel = readLine().toString()
+                val tel = readLine().toString() // String så det inte tappa bort nollan i telefonnummer
                 val teltoInt = tel.toInt()
                 if(tel.length == 10)
                     return tel
