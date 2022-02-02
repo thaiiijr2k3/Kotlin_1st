@@ -54,6 +54,21 @@ fun main(args: Array<String>) {
         _contactList.sortWith(compareBy({it.name}, {it.lastName}))
 
     }
+
+    fun CheckAgeInput(): Int
+    {
+        var _age = -1
+        try{
+            _age = Integer.valueOf(readLine())
+        }
+        catch (e: Exception)
+        {
+            _age = -1
+            println("Fel inmatning!")
+        }
+        return _age
+
+    }
     fun AddList()
     {
 
@@ -62,7 +77,7 @@ fun main(args: Array<String>) {
         print("Efternamn:")
         val _aftername = readLine().toString()
         print("Ålder: ")
-        val _age = Integer.valueOf(readLine())
+        val _age = CheckAgeInput()
         print("Telefonnummer 1:")
         val _tef1 = readLine().toString()
         print("Telefonnummer 2:")
@@ -127,7 +142,8 @@ fun main(args: Array<String>) {
             {
                 println("Ålder: " + _contactList[_index].age)
                 print("Ny ålder: ")
-                _contactList[_index].age = Integer.valueOf(readLine())
+                val _age = CheckAgeInput()
+                _contactList[_index].age = _age
 
             }
 
@@ -168,6 +184,7 @@ fun main(args: Array<String>) {
 
 
 
+    _contactList = _file.ReadFile()
 
     while (_function != 0)
     {

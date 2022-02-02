@@ -1,4 +1,4 @@
-import kotlin.time.measureTimedValue
+ //import kotlin.time.measureTimedValue
 
 class Contact (_name: String = "Unknown", _lastName: String = "Unknown", _age: Int = -1, _phoneNumber1: String = "",
 _phoneNumber2 :String = "", _mail1: String ="", _mail2: String ="") {
