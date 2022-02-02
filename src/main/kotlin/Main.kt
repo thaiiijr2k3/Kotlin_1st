@@ -69,6 +69,27 @@ fun main(args: Array<String>) {
         return _age
 
     }
+
+    fun CheckMailInput(): String
+    {
+        val _mail = readLine().toString()
+        for(i in 0 until _mail.length)
+        {
+            if(_mail[i] == '@')
+                return _mail
+        }
+        println("Fel inmatning!")
+        return "Fel inmatning!"
+
+    }
+
+    fun CheckTelInput()
+    {
+
+
+    }
+
+
     fun AddList()
     {
 
@@ -83,9 +104,9 @@ fun main(args: Array<String>) {
         print("Telefonnummer 2:")
         val _tef2 = readLine().toString()
         print("Mejl-adress 1:")
-        val _mail1 = readLine().toString()
+        val _mail1 = CheckMailInput()
         print("Mejl-adress 2:")
-        val _mail2 = readLine().toString()
+        val _mail2 = CheckMailInput()
         _contactList.add(Contact(_name, _aftername, _age, _tef1, _tef2, _mail1, _mail2))
         SortArray()
         println("Done!")
@@ -165,14 +186,14 @@ fun main(args: Array<String>) {
             {
                 println("Mejl-adress 1: " + _contactList[_index].mail1)
                 print("Ny mejl-adress 1: ")
-                _contactList[_index].mail1 = readLine().toString()
+                _contactList[_index].mail1 = CheckMailInput()
 
             }
             7 ->
             {
                 println("Mejl-adress 2: " + _contactList[_index].mail2)
                 print("Ny mejl-adress 2: ")
-                _contactList[_index].mail2 = readLine().toString()
+                _contactList[_index].mail2 = CheckMailInput()
 
             }
         }
