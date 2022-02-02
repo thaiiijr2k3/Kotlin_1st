@@ -83,10 +83,32 @@ fun main(args: Array<String>) {
 
     }
 
-    fun CheckTelInput()
+    fun CheckTelInput(): String
     {
+        var check = false
+        while(check != true)
+        {
+            try
+            {
+                check = true
+                val tel = readLine().toString()
+                val teltoInt = tel.toInt()
+                if(tel.length == 10)
+                    return tel
+                else
+                {
+                    println("Fel inmatning! Mata in 10-siffriga mobilnummer")
+                    check = false
+                }
 
-
+            }
+            catch (e: Exception)
+            {
+                println("Fel inmatning! Mata in 10-siffriga mobilnummer")
+                check = false
+            }
+        }
+        return ""
     }
 
 
@@ -100,7 +122,7 @@ fun main(args: Array<String>) {
         print("Ålder: ")
         val _age = CheckAgeInput()
         print("Telefonnummer 1:")
-        val _tef1 = readLine().toString()
+        val _tef1 = CheckTelInput()
         print("Telefonnummer 2:")
         val _tef2 = readLine().toString()
         print("Mejl-adress 1:")
@@ -172,7 +194,7 @@ fun main(args: Array<String>) {
             {
                 println("Telefonnummer 1: " + _contactList[_index].phoneNumber1)
                 print("Ny telefonnumer 1: ")
-                _contactList[_index].phoneNumber1 = readLine().toString()
+                _contactList[_index].phoneNumber1 = CheckTelInput()
 
             }
             5 ->
